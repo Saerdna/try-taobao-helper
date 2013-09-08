@@ -1,0 +1,20 @@
+{
+    "manifest_version": 1,
+    "name": "taobao try",
+    "description": "This extension help me to input the answer in try.taobao.com",
+    "version": "1.0",
+    "background" : { "scripts": ["background.js"] },
+    "content_scripts" : [
+    { "matches": ["http://try.taobao.com/item.htm*"], "js": ["content_script.js"] }    
+    ],
+    "page_action" : {
+        "default_name": "auto query",
+        "default_popup": "popup.html"
+    },
+    "permissions": [
+        "tabs",
+    "background",
+    "http://*.taobao.com/*",
+    "http://*.tmall.com/*"
+    ]
+}
