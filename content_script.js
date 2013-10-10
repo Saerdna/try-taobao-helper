@@ -11,7 +11,7 @@ function get_query_answer(link, query) {
     var req = new XMLHttpRequest();
     req.open("GET", link, false);
     req.onreadystatechange = function (e) {
-        console.log(req, e);
+        //console.log(req, e);
         if (req.readyState == 4) {
             if (req.status == 200) {
                 return true;
@@ -20,13 +20,13 @@ function get_query_answer(link, query) {
         return false;
     }
     req.send();
-    console.log(req.getAllResponseHeaders());
+    //console.log(req.getAllResponseHeaders());
     var page = document.implementation.createHTMLDocument("");
     page.body.innerHTML = req.responseText;
     var attrs = page.getElementById('J_AttrUL');
-    console.log(attrs);
+    //console.log(attrs);
     if (link.indexOf("item.taobao.com") != -1) {
-        attrs = page.getElementById('attributes').children[0];
+        attrs = page.getElementsByClassName('attributes-list')[0];
         console.log(attrs);
     }
     console.log(attrs);
